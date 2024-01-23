@@ -21,7 +21,7 @@
         <div class="card">
            <div class="card-header text-dark">Generate QR Code</div>
             <div class="card-body">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-generate-qr">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal-generate-qr">
                     Open Import Modal
                 </button>
                 
@@ -50,6 +50,9 @@
                         @enderror
                     </div>
                     <div class="modal-footer">
+                        <a href="{{ url('/download/excel/format') }}" class="btn btn-link">
+                            Download Excel Format
+                        </a>
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Generate QR Codes</button>
                     </div>
