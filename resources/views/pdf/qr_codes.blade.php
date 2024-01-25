@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Add styles for formatting -->
     <style>
+
+@page { margin-left: 75px;
+margin-top: 30px; }
+body { margin: 0px; }
         body {
             font-family: arial, helvetica, sans-serif;
             width: 7cm;
@@ -115,7 +119,7 @@
                     <img src="data:image/png;base64, {!! base64_encode($qrCode) !!}">
                 </td>
                 <td style="width:70%" id="additionalInfo">
-                    <h1>{{ $qrCodeValue }}</h1>
+                   <br>
                     @foreach ($parts as $part)
                         <p>{{ $part }}</p>
                     @endforeach

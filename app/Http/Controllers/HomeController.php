@@ -57,11 +57,8 @@ class HomeController extends Controller
         }
 
         // Generate PDF with QR codes
-        $pdf = Pdf::loadView('pdf.qr_codes', ['qrCodeValues' => $qrCodeValues]);
-
-        $pdfPath = public_path("pdfs/qr_codes.pdf");
-        $pdf->save($pdfPath);
-        return response()->file($pdfPath);
+        $pdf = Pdf::loadView('pdf.qr_codes', ['qrCodeValues' => $qrCodeValues])->setPaper('a4', 'landscape');;
+        return $pdf->stream('pdf.qr_codes');
         // Download the PDF
     }
 }
