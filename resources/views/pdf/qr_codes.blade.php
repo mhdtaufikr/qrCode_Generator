@@ -101,11 +101,10 @@ body { margin: 0px; }
         // Decrypt the assetId here (replace this with your decryption logic)
        
         // Generate the QR code
-        $compressedData = gzcompress($qrCodeValue);
-        $qrCode = QrCode::size(500)
-            ->margin(5)
-            ->generate("$compressedData");
-
+        $qrCode = QrCode::size(1000)
+        ->margin(5) // Adjust the margin to increase the size of the pixels
+        ->generate("$qrCodeValue");
+        // Split the QR code value using the "#" character
         $parts = explode("#", $qrCodeValue);
     ?>
     <table class="table table-bordered plate custom-table">
