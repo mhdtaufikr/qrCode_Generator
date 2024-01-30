@@ -10,8 +10,8 @@
     <!-- Add styles for formatting -->
     <style>
 
-@page { margin-left: 75px;
-margin-top: 30px; }
+@page { margin-left: 30px;
+margin-top: -7.5px; }
 body { margin: 0px; }
         body {
             font-family: arial, helvetica, sans-serif;
@@ -101,10 +101,11 @@ body { margin: 0px; }
         // Decrypt the assetId here (replace this with your decryption logic)
        
         // Generate the QR code
-        $qrCode = QrCode::size(100)
-        ->margin(5) // Adjust the margin to increase the size of the pixels
-        ->generate("$qrCodeValue");
-        // Split the QR code value using the "#" character
+        $compressedData = gzcompress($qrCodeValue);
+        $qrCode = QrCode::size(500)
+            ->margin(5)
+            ->generate("$compressedData");
+
         $parts = explode("#", $qrCodeValue);
     ?>
     <table class="table table-bordered plate custom-table">
@@ -120,13 +121,19 @@ body { margin: 0px; }
                 </td>
                 <td style="width:70%" id="additionalInfo">
                    <br>
-                    @foreach ($parts as $part)
-                        <p>{{ $part }}</p>
+                   @foreach ($parts as $index => $part)
+                        @if ($index < 5)
+                            <p>{{ $part }}</p>
+                        @else
+                            @break
+                        @endif
                     @endforeach
+
                 </td>
             </tr>
         </tbody>
     </table>
+    <div style="page-break-before: always;"></div>
     
     @endforeach
 </body>
