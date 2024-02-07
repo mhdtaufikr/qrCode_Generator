@@ -15,22 +15,21 @@ margin-top: -7.5px; }
 body { margin: 0px; }
         body {
             font-family: arial, helvetica, sans-serif;
-            width: 7cm;
+            width: 6cm;
             height: 3cm;
             margin: 0.10000in 0.00000in 0.00000in 0.00000in;
-            font-size: 9pt;
+            font-size: 8pt;
         }
 
         .plate {
-            width: 7cm;
+            width: 6cm;
             height: 3cm;
             overflow: hidden;
-            border: 2px solid #000;
             box-sizing: border-box;
         }
 
         #header {
-            font-size: 10px;
+            font-size: 8px;
             font-weight: bold;
             margin-bottom: 10px;
             text-align: center; /* Center header text */
@@ -67,7 +66,7 @@ body { margin: 0px; }
             height: 3cm;
             padding-top: 0.00000in;
             font-family: arial, helvetica, sans-serif;
-            font-size: 6;
+            font-size: 4;
             padding-right: .01in;
             overflow: hidden !important;
             word-wrap: break-word;
@@ -84,7 +83,7 @@ body { margin: 0px; }
             margin: 0.10000in 0.00000in 0.00000in 0.00000in;
         }
         #additionalInfo {
-            font-size: 10px;
+            font-size: 9px;
             text-align: left; /* Center additional info text */
         }
 
@@ -101,7 +100,7 @@ body { margin: 0px; }
         // Decrypt the assetId here (replace this with your decryption logic)
        
         // Generate the QR code
-        $qrCode = QrCode::size(1000)
+        $qrCode = QrCode::size(100)
         ->margin(5) // Adjust the margin to increase the size of the pixels
         ->generate("$qrCodeValue");
         // Split the QR code value using the "#" character
