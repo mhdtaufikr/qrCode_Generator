@@ -120,12 +120,18 @@ body { margin: 0px; }
                 <td style="width:70%" id="additionalInfo">
                    <br>
                    @foreach ($parts as $index => $part)
-                        @if ($index < 5)
-                            <p>{{ $part }}</p>
-                        @else
-                            @break
-                        @endif
-                    @endforeach
+                   @if ($index < 5)
+                       @if (strlen($part) > 23)
+                           <p class="fw-bold">{{ substr($part, 0, 23) }}</p>
+                           <p class="fw-bold">{{ substr($part, 23) }}</p>
+                       @else
+                           <p class="fw-bold">{{ $part }}</p>
+                       @endif
+                   @else
+                       @break
+                   @endif
+               @endforeach
+               
 
                 </td>
             </tr>
